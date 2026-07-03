@@ -1,0 +1,239 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.kindcheck.v0
+
+concept
+	[at0000]	-- Kindcheck
+language
+	original_language = <[ISO_639-1::nl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"84B034CE68331FAF261187E32F6BAEE8">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Kindcheck
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Datum
+										value matches {
+											DV_DATE matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Herkomst
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[ac0001]}		-- New constraint
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Herkomst_anders
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- kleinstiefpleeg
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[ac0002]}		-- New constraint
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Opkomst
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									CLUSTER[at0009] occurrences matches {0..*} matches {	-- Kinderen
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Naam
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Soort
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[ac0003]}		-- New constraint
+													}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Gebdat
+												value matches {
+													DV_DATE matches {*}
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Afhankelijk
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Zorg
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[ac0004]}		-- New constraint
+													}
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- Overleden
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Opmerking_gedeelde_zorg
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0017] occurrences matches {0..1} matches {	-- Opmerking_alleen_zorg
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"code24", ...>
+	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kindcheck">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Datum">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Herkomst">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Herkomst_anders">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"kleinstiefpleeg">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Opkomst">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Kinderen">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Naam">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Soort">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Gebdat">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Afhankelijk">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Zorg">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Overleden">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Opmerking_gedeelde_zorg">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Opmerking_alleen_zorg">
+					description = <"*">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["nl"] = <
+			items = <
+				["ac0001"] = <
+					text = <"New constraint">
+					description = <"*">
+				>
+				["ac0002"] = <
+					text = <"New constraint">
+					description = <"*">
+				>
+				["ac0003"] = <
+					text = <"New constraint">
+					description = <"*">
+				>
+				["ac0004"] = <
+					text = <"New constraint">
+					description = <"*">
+				>
+			>
+		>
+	>
+	constraint_bindings = <
+		["code24"] = <
+			items = <
+				["ac0001"] = <terminology:code24?subset=kindcheck_herkomst>
+				["ac0002"] = <terminology:code24?subset=kindcheck_kleinstiefpleeg>
+				["ac0003"] = <terminology:code24?subset=kincheck_soort>
+				["ac0004"] = <terminology:code24?subset=kindcheck_zorg>
+			>
+		>
+	>

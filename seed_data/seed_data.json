@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "description": "Seed data voor Patiëntenbeheer — export van demo gebruiker + 1 patiënt met DSM-5 en Kindcheck formulier",
+    "exported_at": "2026-06-20T09:35:00",
+    "version": "1.0.0"
+  },
+  "users": [
+    {
+      "username": "demo",
+      "password": "demo123",
+      "display_name": "Demo Gebruiker"
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "voornaam": "Stefan",
+      "achternaam": "de Vrij",
+      "geboortedatum": "2001-01-04",
+      "bsn": "648091958",
+      "adres": "Comeniusstraat",
+      "postcode": "1234AA",
+      "woonplaats": "Alkmaar",
+      "telefoon": "+123456789",
+      "email": "Stefan@devrij.nl",
+      "notities": "Voetballer"
+    }
+  ],
+  "dsm5_forms": [
+    {
+      "patient_id": 1,
+      "status": "concept",
+      "dimensies": "Dimensies",
+      "criteria_a": "A",
+      "criteria_b": "B",
+      "criteria_c": "C",
+      "criteria_d": "D",
+      "criteria_e": "E",
+      "conclusie": "Conclusie staat hier"
+    }
+  ],
+  "kindcheck_forms": [
+    {
+      "patient_id": 1,
+      "datum": "2020-01-01",
+      "herkomst": "instelling",
+      "herkomst_anders": "Geen",
+      "kleinstiefpleeg": null,
+      "opkomst": true,
+      "opmerking_gedeelde_zorg": "Wil graag voetballen",
+      "opmerking_alleen_zorg": "Last met opstaan",
+      "kinderen": []
+    }
+  ]
+}
